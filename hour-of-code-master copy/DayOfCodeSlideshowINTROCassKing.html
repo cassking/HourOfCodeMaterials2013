@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8"/>
+        <meta name = "viewport" content = "user-scalable=no"/> 
+        
+        <title>How to Hack the Web</title>  <!-- Sets the title of your presentation on the browser tab -->
+        
+        <script src="http://slides.netfools.com/js/LAB.min.js"></script>
+        <script>
+             $LAB
+            .script("http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js").wait()
+            .script("http://slides.netfools.com/js/sylvester.js")
+            .script("http://slides.netfools.com/js/jquery.animtrans.js").wait()        
+            .script("http://slides.netfools.com/js/purecssmatrix.js").wait()
+            .script("http://slides.netfools.com/js/md5.js")
+            .script("http://slides.netfools.com/js/jquery-impromptu.3.1.min.js")
+            .script("http://slides.netfools.com/js/jquery.zoomooz.js")
+            .script("http://slides.netfools.com/js/jquery.doubletap.js")
+            .script("http://slides.netfools.com/js/jquery.touchwipe.min.js")
+            .script("http://slides.netfools.com/js/slide.control.1.2.js");
+        </script>
+        
+        <link rel="stylesheet" href="http://slides.netfools.com/style/mozilla-slide-themes.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="http://slides.netfools.com/style/zoomooz.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="http://slides.netfools.com/style/jqi.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="http://slides.netfools.com/style/slide-style.css" type="text/css" media="screen">
+        
+        
+        
+        <style type="text/css">
+        
+              /* **************    CSS Classes that define slide background colors    **************** */
+
+            .no-fade  { background-image: none; } /* The no-fade class disables the background fade effect */
+                
+             /* Change these or add your own. */    
+             /* See http://en.wikipedia.org/wiki/List_of_colors */          
+            
+            .red       {background-color: hsl(000,99%,60%)} /* hsl colors are easier to tweak than hex rgb */
+            .orange    {background-color: hsl(030,99%,60%)} /* The first number is the hue */
+            .yellow    {background-color: hsl(060,99%,60%)} /* The second number is the color saturation (intensity) */
+            .chartreuse{background-color: hsl(090,99%,60%)} /* The third number is the lightness */
+
+            .green     {background-color: hsl(120,99%,60%)}
+            .grass     {background-color: hsl(150,99%,60%)}
+            .cyan      {background-color: hsl(180,99%,60%)}
+            .azure     {background-color: hsl(210,99%,60%)}
+            .blue      {background-color: hsl(240,99%,60%)}
+            .purple    {background-color: hsl(270,99%,60%)}
+            .magenta   {background-color: hsl(300,99%,60%)}
+            .rose      {background-color: hsl(330,99%,60%)}
+            
+            .tangerine {background-color: hsl( 33,99%,50%)}
+            .peach       {background-color: hsl( 39,99%,85%)}
+            .plum      {background-color: hsl(300,33%,70%)}
+            .pear      {background-color: hsl( 66,65%,54%)}    
+            
+            .taupe     {background-color: hsl( 25,32%,62%)}
+            .wheat     {background-color: hsl( 39,77%,70%)}                  
+            .ecru      {background-color: hsl( 45,35%,63%)}   
+            .vanilla   {background-color: hsl( 48,75%,81%)}   
+            .pearl       {background-color: hsl( 46,46%,89%)}   
+                                                        
+            .gray       {background-color: hsl( 60,10%,59%)}
+            .ash       {background-color: hsl(135,03%,72%)}
+            .xanadu    {background-color: hsl(136,08%,60%)}
+            .slate     {background-color: hsl(210,13%,30%)}
+                                                
+            .brown       {background-color: hsl( 30,29%,46%)}
+            .copper       {background-color: hsl( 18,61%,63%)}
+            .gold       {background-color: hsl( 50,65%,72%)}
+            .silver    {background-color: hsl(  0,12%,76%)}    
+            
+            .custom1   {background-color: hsl( 58,35%,75%)}  /* Chosen to match the background in the video */
+            .hsOrange  {background-color: hsl( 49,99%,51%)}  /* Hackasaurus Orange */
+            .hsYellow  {background-color: hsl( 60,99%,50%)}  /* Hackasaurus Yellow */
+            .hsBlue    {background-color: hsl(194,89%,75%)}  /* Hackasaurus Goggles Blue */
+            .hsBlue2   {background-color: hsl(210,99%,50%)}  /* Hackasaurus Cape Blue (lightened) */
+          </style>
+        
+    </head>
+    <body>
+        <noscript><h2>You really need to have Javascript enabled.</h2></noscript>
+        
+
+        <div id="container" class="theme02"> <!-- Set default theme by changing the class  
+                                                  Press keys 1 through 0 to change theme  
+                                                  Themes are defined in slide-themes.css   -->
+                    
+            <!--*****************************************************************************************
+            *
+            *   To create a new slide make a <div> and give it the slide class and a color class.
+            *
+            *   Examples: 
+            *
+            *         <div class="slide green" >  ..some slide content... </div>
+            *  
+            *       <div class="slide red no-fade>  ...content... </div>
+            *  
+            *       <div class="slide blue break>  ...content... </div>
+            *
+            *   Only colors defined as classes above will work, but you can define your own.
+            *
+            *   The no-fade class disables the background color fade effect.
+            *                        
+            *******************************************************************************************-->
+         
+             
+                <!-- You can make "autosets" of slides from PDFs of presentations.
+                 
+                    To specify a slide autoset, put a set of images files into a
+                    web accessible directory. Name them something like name-01 ... name-XX,
+                    create a div with:  class = "autoset"
+                    id            = a unique name for the set of slides
+                    data-source    = the location of the slides on the web
+                    data-prefix    = the slide name prefix
+                    data-type    = the file type
+                    data-count    = the number of slides in the set
+                    
+                    You can have more than one autoset, and you can freely intermix regular 
+                    slides and autosets.
+                    
+                    To create a directory of slides from a pdf (on a Mac)
+                    1 - Open the pdf in Preview and choose File > Print
+                    2 - Click on the PDF button (at the bottom) and choose Print to iPhoto
+                    3 - Open iPhoto and select the album containing your slides
+                    4 - Choose File > Export and change the File Name dropdown to "Sequential" 
+                -->
+                
+                
+                <!--  Uncomment this example and edit to suit.   Move it anywhere in the sequence
+                        
+                <div class="autoset" id="set01" 
+                    data-source    ="./small" 
+                    data-prefix = "slide-"
+                    data-type    = ".jpg"
+                    data-count    = "60"    
+                ></div>
+                     
+                -->
+         
+         
+               <!--**************************  A Slide   ******************************-->
+        
+                <div class="slide hsOrange" >  
+                    <div class='slideBody'>
+                         <div class='autoBox centerText highlight'>
+                            <br>
+                            <h1>How to Hack AND<br> Remix The Web</h1>
+                            
+                            <h3>Let's begin the slideshow!</h3>
+                            <h2>  <img class='size3' src="http://2012.barcampphilly.org/wp-content/uploads/2012/10/weblinc-logo.lightbg.png"></h2>
+                            <br>
+                        </div>
+                    </div> 
+                </div>
+                
+                 
+                
+                 <!--**************************  A Slide   ******************************-->
+    
+    
+                <div class="slide hsBlue" >
+                    <h3>What do we mean when we say "HACK" and "REMIX"?</h3>
+                  
+                     <div class='slideBody autoBox highlight'>
+                        <img class='size7' src="https://wiki.mozilla.org/images/b/b7/BeforeAfterHacks_hackasaurus.jpg">
+                    </div>
+                    <p>Hacking today here refers to mashing up and changing any web page like magic, and creating something new.</p>
+                </div>
+             
+                
+                <!--**************************  A Slide   ******************************-->
+    
+                <div class="slide hsBlue" >
+                    <h3> You use the web EVERY DAY!<br>TODAY, you will see the content and <br> understand it, remix it and make something new.</h3>
+                    <div class='slideBody autoBox highlight'>
+                        <img class='size7' src="http://slides.netfools.com/images/HSslides1/slide6pix.jpg">
+                    </div>
+                </div>
+        
+                <!--**************************  A Slide   ******************************-->
+                
+                <div class="slide hsYellow" >
+                    <h3>The web is made up of components that are like Lego building blocks...</h3>
+                    <div class='slideBody autoBox highlight'>
+                        <img class='size6' src="http://slides.netfools.com/images/HSslides1/slide7pix.png">
+                    </div>
+                    <h3>...that let you make an infinite number of things.</h3>
+                </div>
+                
+        
+                <!--**************************  A Slide   ******************************-->
+    
+                <div class="slide hsBlue2" >
+                    <h3>The world of the web encourages REMIXING to 
+                        make new things because that is how it is built.</h3>
+                    <div class='slideBody autoBox highlight'>
+                        <img class='size5' src="http://slides.netfools.com/images/HSslides1/slide8pix.jpg">
+                    </div>
+                </div>
+                        
+                <!--**************************  A Slide   ******************************-->
+    
+                <div class="slide hsOrange" >
+                    <div class='slideBody autoBox highlight'>
+                        <h1 class='center'>Why should you<br>know how to code?</h1>
+                    </div>
+                </div>
+                        
+                <!--**************************  A Slide   ******************************-->
+    
+                <div class="slide hsBlue" >
+                    <h3>Could you imagine being able to read but not write?</h3><br>
+                    <div class='slideBody autoBox highlight'>
+                        <img class='size6' src="http://slides.netfools.com/images/HSslides1/slide10pix.jpg">
+                    </div>
+                </div>
+                        
+        
+                <!--**************************  A Slide   ******************************-->
+    
+                <div class="slide hsYellow" >
+                    <h3>Knowing how to read and write code allows
+                        you to be an active participant on this world wide web.</h3>
+                    <div class='slideBody autoBox highlight'>
+                        <img class='size6' src="http://stclemcodeclub.files.wordpress.com/2013/03/20130306-202842.jpg">
+                    </div>
+                </div>
+                        
+        
+          
+                        
+        
+                <!--**************************  A Slide   ******************************-->
+    
+                    <div class="slide hsOrange" >
+                    <h3>Today we will use a really cool tool called XRAY GOGGLES. It will give us XRAY vision to see behind the page, it will let us see the CODE</h3>
+                    <div class='slideBody autoBox highlight'>
+                        <img class='size4' src="http://cdn.theatlantic.com/static/mt/assets/science/xraygogs_330.jpg">
+                    </div>
+                </div>
+                        
+                
+             
+                <!--**************************  A Slide   ******************************-->
+    
+                    <div class="slide hsBlue2" >
+                    <h3> At the end of the  activity, you will all have an opportunity
+                       to show off your work!</h3>
+                    <div class='slideBody autoBox highlight'>
+                        <img class='size7' src="http://slides.netfools.com/images/HSslides1/slide16pix.png">
+                    </div>
+                      <h3>Let's get ready to have some fun! LET'S GET READY TO WORK THAT CODE!</h3>
+                </div>
+                        
+       
+
+                        
+                
+                
+
+                
+        </div> <!-- end of slide #container -->
+    </body>
+</html>
+
